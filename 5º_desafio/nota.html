@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucessor e antecessor</title>
+</head>
+
+<body>
+    <div>
+        <h2> Faça um programa que leia um número inteiro e mostre o seu antecessor e seu
+            sucessor.</h2>
+
+        <div>
+
+            <input class="nota1" type="number" placeholder="Digite à 1º nota">
+            <input class="nota2" type="number" placeholder="Digite à 2º nota">
+
+            <button onClick="calcularNota()">Calcular</button>
+        </div>
+
+        <p class="mensagem"></p>
+    </div>
+</body>
+
+<script>
+    /* Faça um programa que leia as duas notas de um aluno em uma matéria e mostre 
+na tela a sua média na disciplina.
+Ex: 
+Nota 1: 4.5
+Nota 2: 8.5
+A média entre 4.5 e 8.5 é igual a 6.5
+*/
+
+    let nota1 = document.querySelector(".nota1");
+    let nota2 = document.querySelector(".nota2");
+
+    function calcularNota() {
+        let notaOne = parseFloat(nota1.value);
+        let notaTwo = parseFloat(nota2.value);
+        let mensagem = document.querySelector('.mensagem')
+        let soma = notaOne + notaTwo;
+        media = soma / 2;
+        mensagem.style.color = "green"
+        if(notaOne > 0 && notaTwo > 0 ){
+            
+            mensagem.innerHTML = ` A média entre ${notaOne} e ${notaTwo} é igual a: ${media}`
+            
+            
+        } else {
+            mensagem.innerHTML = `Digite às notas!`
+            mensagem.style.color = "red"
+        }
+        nota1.value = ""
+        nota2.value = ""
+        
+
+    }
+
+</script>
+
+</html>
