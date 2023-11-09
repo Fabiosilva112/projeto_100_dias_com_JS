@@ -12,22 +12,13 @@
     <div>
 
         <h2>
-            [DESAFIO] Refaça o algoritmo 25, acrescentando o recurso de mostrar que tipo
-            de triângulo será formado:
-            - EQUILÁTERO: todos os lados iguais
-            - ISÓSCELES: dois lados iguais
-            - ESCALENO: todos os lados diferentes
+            [DESAFIO] Crie um jogo de JoKenPo (Pedra-Papel-Tesoura)
         </h2>
 
         <div>
-
-            <input class="valor1" type="number" placeholder="Segmento da 1º reta?" value="" />
-            <input class="valor2" type="number" placeholder="Segmento da 2 reta?" value="" />
-            <input class="valor3" type="number" placeholder="Segmento da 3º reta?" value="" />
-
-
-            <button onClick="calcularNumeroInteiro()">Verificar valor gasto no percusso</button>
-
+            <input class="pedra" onclick="calcularNumeroInteiro('pedra')" type="button" value="pedra" />
+            <input class="papel" onclick="calcularNumeroInteiro('papel')" type="button" value="papel" />
+            <input class="tesoura" onclick="calcularNumeroInteiro('tesoura')" type="button" value="tesoura" />
         </div>
 
         <p class="p"></p>
@@ -38,37 +29,46 @@
 <script>
 
 
-    /* [DESAFIO] Refaça o algoritmo 25, acrescentando o recurso de mostrar que tipo 
-de triângulo será formado: 
- - EQUILÁTERO: todos os lados iguais
- - ISÓSCELES: dois lados iguais
- - ESCALENO: todos os lados diferentes
+    /*  [DESAFIO] Crie um jogo de JoKenPo (Pedra-Papel-Tesoura)
 
     */
 
-    function calcularNumeroInteiro() {
 
-        let valor1 = Number(document.querySelector('.valor1').value);
-        let valor2 = Number(document.querySelector('.valor2').value);
-        let valor3 = Number(document.querySelector('.valor3').value);
+    let p = document.querySelector('.p')
 
-        let p = document.querySelector('.p')
+    let nome = [
+        document.querySelector('.pedra').value,
+        document.querySelector('.papel').value,
+        document.querySelector('.tesoura').value
+    ]
 
+    function calcularNumeroInteiro(hum) {
 
-        if (valor1 == valor2 && valor2 == valor3 && valor3 == valor1) {
+        let maquina = Math.floor(Math.random() * 3);
 
-            p.innerHTML = 'Triângulo EQUILÁTERO'
+        console.log(nome[maquina])
+        
+
+        if (
+
+            hum === 'papel' && nome[maquina] === 'pedra' /* false */ ||
+            hum === 'pedra' && nome[maquina] === 'tesoura' /* true*/ ||
+            hum === 'tesoura' && nome[maquina] === 'papel' /*false*/) {
+
+            p.innerHTML = " Você ganhou"
+
         }
 
-        else if (valor1 == valor2 || valor1 == valor3 || valor2 == valor3) {
+        else if (hum === nome[maquina]) {
 
-            p.innerHTML = 'Triângulo ISÓSCELES'
+            p.innerHTML = "Você empatou"
 
-        } else{
-            p.innerHTML = 'Triângulo ESCALENO'
+        } else {
+            p.innerHTML = "Maquina ganhou"
         }
-
     }
+
+    // pedra => tesoura => papel => pedra
 
 </script>
 
