@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros </title>
+</head>
+
+<body>
+    <div width="100%">
+        <h2>
+            O Índice de Massa Corpórea (IMC) é um valor calculado baseado na altura e no
+            peso de uma pessoa. De acordo com o valor do IMC, podemos classificar o
+            indivíduo dentro de certas faixas.
+            - abaixo de 18.5: Abaixo do peso
+            - entre 18.5 e 25: Peso ideal
+            - entre 25 e 30: Sobrepeso
+            - entre 30 e 40: Obesidade
+            - acima de 40: Obseidade mórbida
+        </h2>
+        <div style="border:1px solid red">
+            <p>Calcule o aluguel: Você pode escolher entre corros (Popular e Luxo)</p>
+            <div>
+                <input class="tipoCarro" type="text" placeholder="Qual o tipo de carro?" value="" required>
+                <input class="diasAluguel" type="number" placeholder="Quantos dias alugado?" value="" required>
+                <input class="kmRodado" type="number" placeholder="Quantos Km vai rodar?" value="" required>
+
+                <button class="verificar" onclick="calcularImc()"> Verificar aluguel</button>
+            </div>
+        </div>
+        <p class="p"></p>
+    </div>
+
+    <script>
+
+
+        /* Uma empresa de aluguel de carros precisa cobrar pelos seus serviços. O 
+aluguel de um carro custa R$90 por dia para carro popular e R$150 por dia para 
+carro de luxo. Além disso, o cliente paga por Km percorrido. Faça um programa
+que leia o tipo de carro alugado (popular ou luxo), quantos dias de aluguel e 
+quantos Km foram percorridos. No final mostre o preço a ser pago de acordo com a 
+tabela a seguir:
+ - Carros populares (aluguel de R$90 por dia)
+ - Até 100Km percorridos: R$0,20 por Km
+ - Acima de 100Km percorridos: R$0,10 por Km
+ - Carros de luxo (aluguel de R$150 por dia)
+ - Até 200Km percorridos: R$0,30 por Km
+ - Acima de 200Km percorridos: R$0,25 por Km */
+
+
+
+
+        let calcularImc = () => {
+
+            let tipoCarro = document.querySelector('.tipoCarro').value
+            let diasAluguel = document.querySelector('.diasAluguel').value
+            let kmRodado = document.querySelector('.kmRodado').value
+            let ValorCarPopular = 90
+            let ValorCarluxo = 150
+            
+            let p = document.querySelector('.p')
+
+            if (tipoCarro == 'popular' && kmRodado <= 100 ) {
+
+                let sum = (kmRodado * 0.20) + (ValorCarPopular * diasAluguel)
+                p.innerHTML = `Você escolheu o carro ${tipoCarro}, e vai rodar ${kmRodado}Km portanto você vai pagar ${sum.toFixed(2)}`
+
+            } else if (tipoCarro == 'popular' && kmRodado > 100) {
+
+                let sum = (kmRodado * 0.10) + (ValorCarPopular * diasAluguel)
+                p.innerHTML = `Você escolheu o carro ${tipoCarro}, e vai rodar ${kmRodado}Km portanto você vai pagar ${sum.toFixed(2)}`
+
+            } else if (tipoCarro == 'luxo' && kmRodado <= 200){
+                let sum = (kmRodado * 0.30) + (ValorCarluxo * diasAluguel)
+                p.innerHTML = `Você escolheu o carro ${tipoCarro}, e vai rodar ${kmRodado}Km portanto você vai pagar ${sum.toFixed(2)}`
+            } else {
+                let sum = (kmRodado * 0.25) + (ValorCarluxo * diasAluguel)
+                p.innerHTML = `Você escolheu o carro ${tipoCarro}, e vai rodar ${kmRodado}Km portanto você vai pagar ${sum.toFixed(2)}`
+            }
+
+            
+        }
+
+
+    </script>
+</body>
+
+</html>
