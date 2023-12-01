@@ -10,12 +10,12 @@
 <body>
   <div width="100%">
     <h2>
-        Crie um algoritmo que leia o valor inicial da contagem, o valor final e o 
-        incremento, mostrando em seguida todos os valores no intervalo:
-        Ex: Digite o primeiro Valor: 3
-        Digite o último Valor: 10
-        Digite o incremento: 2
-        Contagem: 3 5 7 9 Acabou!
+      Crie um algoritmo que leia o valor inicial da contagem, o valor final e o
+      incremento, mostrando em seguida todos os valores no intervalo:
+      Ex: Digite o primeiro Valor: 3
+      Digite o último Valor: 10
+      Digite o incremento: 2
+      Contagem: 3 5 7 9 Acabou!
     </h2>
 
     <input class="input1" type="number" placeholder="Digite o primeiro número" value="">
@@ -30,17 +30,17 @@
   <script>
     const contagem = () => {
 
-        let input1 = Number(document.querySelector('.input1').value) // 3
-        let input2 = Number(document.querySelector('.input2').value) // 10
-        let input3 = Number(document.querySelector('.input3').value) // 2
-        
-        
-       while (input1 < input2) {
-        
-         input1 = input1 + input3
+      let input1 = Number(document.querySelector('.input1').value) // 3
+      let input2 = Number(document.querySelector('.input2').value) // 10
+      let input3 = Number(document.querySelector('.input3').value) // 2
+
+
+      while (input1 <= input2) {
 
         console.log(input1)
-       }
+        input1 = input1 + input3
+
+      }
     }
   </script>
 </body>
