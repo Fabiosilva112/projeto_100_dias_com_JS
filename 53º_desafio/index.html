@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contagem</title>
+</head>
+
+<body>
+    <div width="100%">
+        <h2>
+            Faça um programa que leia a idade e o sexo de 5 pessoas, mostrando no final:
+            a) Quantos homens foram cadastrados
+            b) Quantas mulheres foram cadastradas
+            c) A média de idade do grupo
+            d) A média de idade dos homens
+            e) Quantas mulheres tem mais de 20 anos
+
+        </h2>
+
+        <label for=""> 1º Pessoa
+            <input class="idade1" type="number" placeholder="idade 01">
+            <input class="sexo1" type="text" placeholder="Digite o sexo">
+        </label>
+        <label for=""> 2º Pessoa
+            <input class="idade2" type="number" placeholder="idade 02">
+            <input class="sexo2" type="text" placeholder="Digite o sexo">
+        </label>
+        <label for=""> 3º Pessoa
+            <input class="idade3" type="number" placeholder="idade 03">
+            <input class="sexo3" type="text" placeholder="Digite o sexo">
+        </label>
+        <label for=""> 4º Pessoa
+            <input class="idade4" type="number" placeholder="idade 04">
+            <input class="sexo4" type="text" placeholder="Digite o sexo">
+        </label>
+        <label for=""> 5º Pessoa
+            <input class="idade5" type="number" placeholder="idade 05">
+            <input class="sexo5" type="text" placeholder="Digite o sexo">
+        </label>
+
+        <button onclick="calcularSomaSequencia()">Chama Função</button>
+
+        <p class="p"></p>
+        <p class="p1"></p>
+        <p class="p2"></p>
+        <p class="p3"></p>
+        <p class="p4"></p>
+    </div>
+
+    <script>
+
+        function calcularSomaSequencia() {
+
+            let sexo1 = document.querySelector('.sexo1').value
+            let sexo2 = document.querySelector('.sexo2').value
+            let sexo3 = document.querySelector('.sexo3').value
+            let sexo4 = document.querySelector('.sexo4').value
+            let sexo5 = document.querySelector('.sexo5').value
+
+            let idade1 = Number(document.querySelector('.idade1').value)
+            let idade2 = Number(document.querySelector('.idade2').value)
+            let idade3 = Number(document.querySelector('.idade3').value)
+            let idade4 = Number(document.querySelector('.idade4').value)
+            let idade5 = Number(document.querySelector('.idade5').value)
+
+            let p = document.querySelector('.p')
+            let p1 = document.querySelector('.p1')
+            let p2 = document.querySelector('.p2')
+            let p3 = document.querySelector('.p3')
+            let p4 = document.querySelector('.p4')
+
+            let mediaGrup = 0
+
+            let vaList = [
+                {idade: idade1, sexo: sexo1},
+                {idade: idade2, sexo: sexo2},
+                {idade: idade3, sexo: sexo3},
+                {idade: idade4, sexo: sexo4},
+                {idade: idade5, sexo: sexo5}
+            ]
+
+
+
+            const quantHomen = vaList.filter( item =>{
+              
+                if (item.sexo === "masculino") {
+                    return true
+                } else {
+                    return false
+                }
+                 
+            })
+            
+            const quantMulher = vaList.filter( item =>{
+              
+                if (item.sexo === "feminino") {
+                    return true
+                } else {
+                    return false
+                }
+                 
+            })
+
+            for (let index = 0; index < vaList.length; index++) {
+                const element = vaList[index].idade;
+                 mediaGrup = element + element
+            }
+
+            
+
+            
+            
+
+            p.innerHTML = 'A quantidade de homens cadastrados foram: ' + quantHomen.length
+            p1.innerHTML = 'A quantidade de mulheres cadastrados foram: ' + quantMulher.length
+            p2.innerHTML = 'A média de idade do grupo é: ' 
+            p3.innerHTML = 'A média de idade dos homens: ' 
+            p4.innerHTML = 'Quantas mulheres tem mais de 20 anos: ' 
+
+        }
+
+    </script>
+</body>

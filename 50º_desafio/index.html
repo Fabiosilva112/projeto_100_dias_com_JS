@@ -43,6 +43,7 @@
             }
 
             let numerosSorteados = "Os números sorteados foram: ";
+
             for (let i = 0; i < contagem.length; i++) {
                 numerosSorteados += contagem[i];
                 if (i !== contagem.length - 1) {
@@ -69,7 +70,6 @@
             p.innerHTML = numerosSorteados;
             p1.innerHTML = `A quantidade de números maiores que 5 foram: ${novoAry.length}`
             p2.innerHTML = `A quantidade de números divisíveis por 3 foram: ${novoAry2.length}`
-
         }
 
         calcularSomaSequencia()
