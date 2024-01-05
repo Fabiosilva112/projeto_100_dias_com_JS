@@ -13,28 +13,43 @@ let muscle = []
 let salarioF = []
 let salarioM = []
 
+function validarNumero(input) {
+    let numero = parseFloat(input);
+    while (isNaN(numero)) {
+        input = inputRL.question("Por favor, digite um número para o salário:");
+        numero = parseFloat(input);
+    }
+    return numero;
+}
 
 
-function teste() {   
+
+function calcularTotalSalarios(listaSalarios /*salarioF*/) {
+    return /*salarioF*/ listaSalarios.reduce((total, salario) => total + parseFloat(salario),
+        0);
+}
+
+function teste() {
 
     console.log('===========================')
 
     let sexo =
         inputRL.question
             ("Digite o sexo: ")
+
+    let salarioInput = inputRL.question("Digite o salário: ");
     let salario =
-        inputRL.question
-            ("Digite salário: ")
+        validarNumero(salarioInput);
 
     let mensagem = inputRL.question
         ("Deseja perguntar novamente (s/n?):")
 
-    if (sexo === 'feminino') {
+    if (sexo.toLowerCase() === 'feminino') {
         femile.push(sexo);
-        salarioF.push(parseFloat.salario);        
+        salarioF.push(salario);
     } else {
         muscle.push(sexo);
-        salarioM.push(parseFloat.salario);
+        salarioM.push(salario);
     }
 
     while (mensagem === 'sim') {
@@ -45,7 +60,14 @@ function teste() {
 
 teste()
 
+let totalSalariosMulheres = calcularTotalSalarios(salarioF);
+let totalSalariosHomens = calcularTotalSalarios(salarioM);
+
+
 console.log(`O total de mulheres cadastradas foram ${femile.length}`)
+console.log(`O total de homens cadastrados foram ${muscle.length}`)
+console.log(`Total de salários pagos às mulheres: ${totalSalariosMulheres}`);
+console.log(`Total de salários pagos aos homens: ${totalSalariosHomens}`);
 
 
 
